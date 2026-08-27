@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+/* Custom Glassmorphism & Triage UI accents */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-danger {
+  background: rgba(239, 68, 68, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.glass-panel-warning {
+  background: rgba(249, 115, 22, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Monospace font utility */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
