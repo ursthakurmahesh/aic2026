@@ -140,13 +140,13 @@ Compliant with **HIPAA Security Rule (45 CFR § 164.312)**, **GDPR Article 22 (A
 ##  Surge Mode Simulation (3× Volume)
 
 When a mass casualty incident, epidemic wave, or ambulance diversion creates a sudden patient surge:
-- Toggle **"🚨 Trigger 3× ED Surge Mode"** on the dashboard.
+- Toggle **" Trigger 3× ED Surge Mode"** on the dashboard.
 - Instantly loads 20+ arrivals to test queue throughput.
 - **Dynamic Fast-Track Diversion**: Automatically segregates ESI 4 & 5 non-urgent cases into a secondary fast-track queue, preserving Acute/Resus capacity for ESI 1 & 2 emergencies.
 
 ---
 
-## 👥 Pre-Configured Simulated Patient Cohort (20 Cases)
+##  Pre-Configured Simulated Patient Cohort (20 Cases)
 
 The prototype includes 20 clinically rich test scenarios:
 1. **Baby Aarav (18mo)**: High fever (39.2°C), lethargy, tachycardia $\rightarrow$ *Pediatric Emergency (ESI 2)*.
@@ -244,5 +244,5 @@ npm run dev
 
 ---
 
-## 📜 License
+##  License
 MIT License. Built for healthcare technology innovation and emergency clinical decision support.
