@@ -1,10 +1,10 @@
-# 🏥 FHIR-Triage AI: Emergency Department Patient Triage & Dynamic Queue Intelligence Assistant
+#  FHIR-Triage AI: Emergency Department Patient Triage & Dynamic Queue Intelligence Assistant
 
 > **PS-1 / Round 2 Solution**: A clinical-grade, age-stratified, safety-first Emergency Department (ED) triage assistant that prioritizes arriving patients in real-time, calculates explicit uncertainty bounds, actively tracks waiting-room deterioration, and exports HL7 FHIR R4-compliant interoperable records with regulatory-compliant clinician override audit logging.
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 1. [Executive Summary & Problem Context](#-executive-summary--problem-context)
 2. [Key Real-World Complexities Addressed](#-key-real-world-complexities-addressed)
 3. [Architecture & Decision Model](#-architecture--decision-model)
@@ -19,7 +19,7 @@
 
 ---
 
-## 📌 Executive Summary & Problem Context
+##  Executive Summary & Problem Context
 
 In high-volume Emergency Departments (EDs), intake triage occurs in seconds under intense time pressure and incomplete information. Emergency Department triage uses a 5-level severity index (ESI 1 to 5):
 - **ESI 1 (Resuscitation)**: Immediate life-saving intervention needed ($0\text{ min}$ wait).
@@ -39,7 +39,7 @@ In high-volume Emergency Departments (EDs), intake triage occurs in seconds unde
 
 ---
 
-## 🎯 Key Real-World Complexities Addressed
+##  Key Real-World Complexities Addressed
 
 ```mermaid
 graph TD
@@ -56,7 +56,7 @@ graph TD
     F --> G["Uncertainty & Confidence Estimator\n(Data Completeness + Ambiguity Score)"]
     
     G --> H{"Confidence < 75% OR\nHigh-Risk Atypical Flags?"}
-    H -->|"YES (Safety-First Bias)"| I["🚨 Apply Fail-Safe Escalation (+1 Acuity Tier)\nBadge: [Escalated due to Uncertainty]"]
+    H -->|"YES (Safety-First Bias)"| I[" Apply Fail-Safe Escalation (+1 Acuity Tier)\nBadge: [Escalated due to Uncertainty]"]
     H -->|"NO"| J["Assign Baseline ESI Tier (1-5)"]
     
     I --> K["Nurse Review Station\n(Confidence %, Rationale, Zone Routing)"]
@@ -70,7 +70,7 @@ graph TD
 
 ---
 
-## ⚖️ Asymmetric Risk & Safety-First Escalation
+##  Asymmetric Risk & Safety-First Escalation
 
 In medical triage, the cost function is asymmetric:
 $$\text{Cost}(\text{Under-Triage}) \gg \text{Cost}(\text{Over-Triage})$$
@@ -80,11 +80,11 @@ To encode this clinical principle into code:
 2. **First-Time / Zero-History Penalty**: First-time walk-ins with no historical baseline receive a mandatory $15\%$ uncertainty margin.
 3. **Automatic Fail-Safe Escalation**:
    - If computed confidence is $< 75\%$, or if borderline vital signs exist in geriatric/pediatric patients, the system automatically promotes the patient to the next highest severity tier (e.g., ESI 3 $\rightarrow$ ESI 2).
-   - The UI surfaces this transparently to the nurse: `[⚠️ Escalated due to Uncertainty: Atypical presentation in diabetic geriatric patient without chest pain]`.
+   - The UI surfaces this transparently to the nurse: `[ Escalated due to Uncertainty: Atypical presentation in diabetic geriatric patient without chest pain]`.
 
 ---
 
-## 👶 👵 Age-Stratified Scoring Framework
+##  Age-Stratified Scoring Framework
 
 | Demographic | Physiological Distinctions | Scoring Systems Applied |
 | :--- | :--- | :--- |
@@ -108,12 +108,12 @@ Arriving patients do not stay static; their condition can degrade while waiting.
 | **ESI 5** | Non-Urgent / Prescription / Minor Wound | **120 Minutes** | Fast-Track / Triage Out |
 
 ### Automatic Deterioration Triggers
-1. **SLA Breach Alert**: If a patient's wait time reaches $100\%$ of their SLA, the queue card flashes red with a `[⚠️ SLA Breached: Re-Assessment Required]` alert.
+1. **SLA Breach Alert**: If a patient's wait time reaches $100\%$ of their SLA, the queue card flashes red with a `[ SLA Breached: Re-Assessment Required]` alert.
 2. **Vitals Re-Assessment**: When a nurse re-checks vitals at the 30-minute mark, worsening vitals automatically escalate the patient's ESI level and bump them to the top of the queue.
 
 ---
 
-## 🔒 Regulatory Compliance & Immutable Audit Logging
+##  Regulatory Compliance & Immutable Audit Logging
 
 Compliant with **HIPAA Security Rule (45 CFR § 164.312)**, **GDPR Article 22 (Automated Decision Making)**, and **ABDM / ISO 27799**:
 
@@ -137,7 +137,7 @@ Compliant with **HIPAA Security Rule (45 CFR § 164.312)**, **GDPR Article 22 (A
 
 ---
 
-## 🚨 Surge Mode Simulation (3× Volume)
+##  Surge Mode Simulation (3× Volume)
 
 When a mass casualty incident, epidemic wave, or ambulance diversion creates a sudden patient surge:
 - Toggle **"🚨 Trigger 3× ED Surge Mode"** on the dashboard.
@@ -163,7 +163,7 @@ The prototype includes 20 clinically rich test scenarios:
 
 ---
 
-## 📦 Project Structure
+##  Project Structure
 
 ```
 fhir-triage-ai/
@@ -206,7 +206,7 @@ fhir-triage-ai/
 
 ---
 
-## 🚀 Quick Start & Setup Instructions
+##  Quick Start & Setup Instructions
 
 ### Option A: Run the Frontend (Zero Configuration Standalone Mode)
 The frontend contains an integrated client-side clinical rules engine and pre-loaded dataset. It runs immediately without any external database or API key:
