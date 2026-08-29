@@ -241,7 +241,16 @@ cd frontend
 npm install
 npm run dev
 ```
+##  Video Demo
 
+[Watch the Video Demo →](https://drive.google.com/file/d/19AUV2C3C-lErte6xesNzZ2On0Inhtt9h/view?usp=sharing)
+
+## Credits
+
+| Role | Contributor |
+|------|-------------|
+| Voice Over | Narain Singh |
+| Final Edit | Mahesh Thakur |
 ---
 
 ##  License
